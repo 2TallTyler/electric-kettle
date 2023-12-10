@@ -1,0 +1,10 @@
+##grflangid 0x01
+
+STR_GRF_NAME                        :{TITLE} {VERSION}
+STR_GRF_DESC                        :{ORANGE}It's electric!{}{}{BLACK}During World War II, Switzerland fitted two steam locomotives with electric heaters to boil water instead of coal. This is a rough approximation, borrowing sprites from Iron Horse.{}{}{BLACK}Created by 2TallTyler with sprites by andythenorth.
+
+STR_WEBSITE                         :https://github.com/2TallTyler/electric-kettle
+
+STR_ROLE_FREIGHT                    :Role: {GOLD}Freight
+
+STR_NAME_ELECTRIC_KETTLE            :0-6-0 Electric Kettle

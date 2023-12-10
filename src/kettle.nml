@@ -1,0 +1,60 @@
+/* Normal sprite */
+spriteset(spriteset_electric_kettle, "src\gfx\electric_kettle.png") {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	//							more negative to shift left
+	//											more negative to shift up
+    [ 0,		0,		8,		29,		-3,			-20]
+    [ 13,		0,		26,		24,		-12,		-17]
+    [ 44,		0,		33,		16,		-8,			-12]
+    [ 83,		0,		26,		24,		0,			-15]
+    [ 120,		0,		8,		29,		-3,			-16]
+    [ 133,	    0,		26,		24,		-16,		-15]
+    [ 164,	    0,		33,		16,		-16,		-12]
+    [ 203,	    0,		26,		24,		-4,			-17]
+}
+
+/* Purchase sprite */
+spriteset(spriteset_purchase_electric_kettle, "src\gfx\electric_kettle.png") {
+    //left_x, upper_y, width, height, offset_x, offset_y
+	//							more negative to shift left
+	//											more negative to shift up
+    [ 0,		0,		8,		29,		-3,			-20]
+    [ 13,		0,		26,		24,		-12,		-17]
+    [ 44,		0,		33,		16,		-4,			-12] // flipped purchase sprite
+    [ 83,		0,		26,		24,		0,			-15]
+    [ 120,		0,		8,		29,		-3,			-16]
+    [ 133,	    0,		26,		24,		-16,		-15]
+    [ 164,	    0,		33,		16,		-12,		-12] // normal purchase sprite
+    [ 203,	    0,		26,		24,		-4,			-17]
+}
+
+item(FEAT_TRAINS, item_electric_kettle, 1) {
+	property {
+		/* Common properties */
+		name: string(STR_NAME_ELECTRIC_KETTLE);
+		climates_available: ALL_CLIMATES;
+		introduction_date: date(1941,01,01);
+		model_life:	VEHICLE_NEVER_EXPIRES;
+		vehicle_life: 40;
+		reliability_decay: 20;
+		cargo_capacity: 0;
+		/* Train-specific properties */
+		sprite_id: SPRITE_ID_NEW_TRAIN; // enable new graphics
+		speed: 60 mph;
+		misc_flags: bitmask(TRAIN_FLAG_2CC);
+		track_type:	ELRL;
+		running_cost_base: RUNNING_COST_STEAM;
+		engine_class: ENGINE_CLASS_STEAM; // sets the sound effect
+		power: 1000 hp;
+		weight: 35 tons;
+		tractive_effort_coefficient: 0.3;
+		length: 6;
+	}
+	graphics {
+		default: spriteset_electric_kettle;
+        purchase: spriteset_purchase_electric_kettle;
+		cost_factor: 28;
+		running_cost_factor: 1100;
+		additional_text: string(STR_ROLE_FREIGHT);
+	}
+}
